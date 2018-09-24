@@ -1,0 +1,15 @@
+.task-manager-header {
+    color: white;
+    height: 120px;
+    padding: 20px;
+    display: flex;
+    font-size: 2em;
+    align-items: center;
+    justify-content: center;
+    background-color: #222222;
+}
+
+.task-manager-title {
+    margin: 0;
+    font-weight: bold;
+}
