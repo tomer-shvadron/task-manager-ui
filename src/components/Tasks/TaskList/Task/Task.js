@@ -3,19 +3,24 @@ import {Checkbox} from 'react-bootstrap';
 
 import './Task.css';
 import TasksService from '../../../../services/TasksService';
+import TMButton from "../../../TMButton/TMButton";
 
 class Task extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {isDone: props.task.isDone, description: props.task.description};
+        this.state = {id: props.task._id.$oid, description: props.task.description, isDone: props.task.isDone};
     }
 
     onChange = () => {
         var newDone = !this.state.isDone;
 
         this.setState({isDone: newDone});
-        TasksService.updateTask({id: this.props.task._id.$oid, isDone: newDone, description: this.state.description});
+        TasksService.updateTask({id: this.state.id, isDone: newDone, description: this.state.description});
+    };
+
+    removeTask = () => {
+        this.props.removeTask(this.state.id);
     };
 
     render() {
@@ -24,6 +29,7 @@ class Task extends Component {
                 <Checkbox checked={this.state.isDone} onChange={this.onChange}>
                     {this.state.description}
                 </Checkbox>
+                <TMButton csName="remove-task" onClick={this.removeTask} glyph="remove"/>
             </div>
         );
     }

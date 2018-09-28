@@ -25,6 +25,13 @@ class Tasks extends Component {
         this.setState({tasks: allTasks});
     };
 
+    removeTask = id => {
+        TasksService.removeTask(id);
+        var currentTasks = this.state.tasks.filter(task => task._id.$oid !== id);
+
+        this.setState({tasks: currentTasks});
+    };
+
     setLoading = isLoading => {
         this.setState({loading: isLoading});
     };
@@ -37,7 +44,7 @@ class Tasks extends Component {
                     <TasksHeader updateTasks={this.updateTasks} setLoading={this.setLoading}/>
                     {
                         this.state.tasks.length > 0
-                            ? <TaskList tasks={this.state.tasks}/>
+                            ? <TaskList tasks={this.state.tasks} removeTask={this.removeTask}/>
                             : <NoTasks/>
                     }
                 </div>

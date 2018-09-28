@@ -1,12 +1,15 @@
-import Consts from '../Consts';
 import AjaxService from './AjaxService';
 
+var url = 'tasks';
+
 var TasksService = {
-    getAllTasks: () => AjaxService.get(`${Consts.BASE_URL}/tasks`),
+    getAllTasks: () => AjaxService.get(url),
 
-    addTask: task => AjaxService.post(`${Consts.BASE_URL}/tasks`, task),
+    addTask: task => AjaxService.post(url, task),
 
-    updateTask: task => AjaxService.put(`${Consts.BASE_URL}/tasks`, task)
+    updateTask: task => AjaxService.put(url, task),
+
+    removeTask: taskId => AjaxService.delete(`${url}/${taskId}`)
 };
 
 export default TasksService;
