@@ -10,7 +10,7 @@ class AddTaskForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="add-task-form">
                 <form>
                     <FormGroup controlId="formTaskDescription">
                         <ControlLabel>

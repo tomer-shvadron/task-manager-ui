@@ -34,9 +34,11 @@ class AddTaskSection extends Component {
                              updateDescription={this.updateDescription}
                              descriptionInputClassName={this.state.descriptionInputClassName}/>
 
-                <TMButton csName="save-task-button" onClick={this.saveNewTask} glyph="ok"/>
+                <div className="add-task-section-buttons">
+                    <TMButton csName="save-task-button" onClick={this.saveNewTask} glyph="ok"/>
 
-                <TMButton csName="close-add-task-section-button" onClick={this.props.close} glyph="remove"/>
+                    <TMButton csName="close-add-task-section-button" onClick={this.props.closeSection} glyph="remove"/>
+                </div>
             </div>
         );
     }
