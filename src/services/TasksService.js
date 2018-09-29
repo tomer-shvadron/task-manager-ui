@@ -9,7 +9,9 @@ var TasksService = {
 
     updateTask: task => AjaxService.put(url, task),
 
-    removeTask: taskId => AjaxService.delete(`${url}/${taskId}`)
+    removeTask: taskId => AjaxService.delete(`${url}/${taskId}`),
+
+    createNewTask: description => ({description: description, isDone: false})
 };
 
 export default TasksService;

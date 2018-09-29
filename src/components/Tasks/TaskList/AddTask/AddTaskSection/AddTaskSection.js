@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import './AddTaskSection.css';
 import AddTaskForm from './AddTaskForm/AddTaskForm';
 import TMButton from '../../../../TMButton/TMButton';
+import TasksService from '../../../../../services/TasksService';
 
 class AddTaskSection extends Component {
     constructor(props) {
@@ -17,7 +18,10 @@ class AddTaskSection extends Component {
 
     saveNewTask = () => {
         if (this.state.description.length > 0) {
-            this.props.add({description: this.state.description}, this.props.close);
+            var task = TasksService.createNewTask(this.state.description);
+
+            this.props.addTask(task);
+            this.props.closeSection();
         } else {
             this.setState({descriptionInputClassName: 'bad-description'});
         }

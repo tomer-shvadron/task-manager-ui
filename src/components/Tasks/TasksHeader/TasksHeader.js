@@ -9,7 +9,7 @@ class TasksHeader extends Component {
             <div className="tasks-header">
                 <h1>Tasks</h1>
 
-                <AddTask updateTasks={this.props.updateTasks} setLoading={this.props.setLoading}/>
+                <AddTask addTask={this.props.addTask}/>
             </div>
         );
     }
