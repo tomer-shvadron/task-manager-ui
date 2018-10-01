@@ -17,14 +17,16 @@ class AddTaskSection extends Component {
     };
 
     saveNewTask = () => {
-        if (this.state.description.length > 0) {
-            var task = TasksService.createNewTask(this.state.description);
+        this.state.description.length > 0
+            ? this.addTaskAndCloseSection()
+            : this.setState({descriptionInputClassName: 'bad-description'});
+    };
 
-            this.props.addTask(task);
-            this.props.closeSection();
-        } else {
-            this.setState({descriptionInputClassName: 'bad-description'});
-        }
+    addTaskAndCloseSection = () => {
+        var task = TasksService.createNewTask(this.state.description);
+
+        this.props.addTask(task);
+        this.props.closeSection();
     };
 
     render() {
@@ -34,10 +36,10 @@ class AddTaskSection extends Component {
                              updateDescription={this.updateDescription}
                              descriptionInputClassName={this.state.descriptionInputClassName}/>
 
-                <div className="add-task-section-buttons">
-                    <TMButton csName="save-task-button" onClick={this.saveNewTask} glyph="ok"/>
+                <div className="center">
+                    <TMButton onClick={this.saveNewTask} glyph="ok"/>
 
-                    <TMButton csName="close-add-task-section-button" onClick={this.props.closeSection} glyph="remove"/>
+                    <TMButton onClick={this.props.closeSection} glyph="remove"/>
                 </div>
             </div>
         );

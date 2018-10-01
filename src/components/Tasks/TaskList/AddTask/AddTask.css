@@ -1,6 +1,4 @@
 .add-task-container {
     width: 75%;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto 20px;
+    margin: 20px auto 20px;
 }

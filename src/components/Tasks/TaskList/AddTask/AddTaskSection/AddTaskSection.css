@@ -2,11 +2,6 @@
     width: 100%;
 }
 
-.add-task-section-buttons {
-    display: flex;
-    justify-content: center;
-}
-
 .bad-description {
     border-color: red;
 }

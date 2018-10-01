@@ -16,7 +16,7 @@ class Tasks extends Component {
 
     componentDidMount() {
         TasksService.getAllTasks().then(tasks => {
-            this.setState({tasks: tasks.data, loading: false});
+            this.setState({allTasks: tasks.data, tasks: tasks.data, loading: false});
         });
     }
 
@@ -33,6 +33,18 @@ class Tasks extends Component {
         this.setState({tasks: updatedTasks});
     };
 
+    filterList = e => {
+        if (e.target.value.length === 0) {
+            this.setState({tasks: this.state.allTasks});
+            return;
+        }
+
+        var filteredTasks = this.state.allTasks
+            .filter(task => task.description.toLowerCase().search(e.target.value.toLowerCase()) !== -1);
+
+        this.setState({tasks: filteredTasks});
+    };
+
     render() {
         return this.state.loading
             ? <LoadingIndication isLoading={this.state.loading}/>
@@ -40,8 +52,9 @@ class Tasks extends Component {
                 <div className="tasks">
                     <TasksHeader addTask={this.addTask}/>
                     {
-                        this.state.tasks.length > 0
-                            ? <TaskList tasks={this.state.tasks} removeTask={this.removeTask}/>
+                        this.state.allTasks.length > 0
+                            ? <TaskList tasks={this.state.tasks} filterList={this.filterList}
+                                        removeTask={this.removeTask}/>
                             : <NoTasks/>
                     }
                 </div>

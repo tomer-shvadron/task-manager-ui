@@ -3,7 +3,7 @@ import {Checkbox} from 'react-bootstrap';
 
 import './Task.css';
 import TasksService from '../../../../services/TasksService';
-import TMButton from "../../../TMButton/TMButton";
+import TMButton from '../../../TMButton/TMButton';
 
 class Task extends Component {
     constructor(props) {
@@ -25,8 +25,8 @@ class Task extends Component {
 
     render() {
         return (
-            <div className="task">
-                <Checkbox checked={this.state.isDone} onChange={this.onChange}>
+            <div className="center">
+                <Checkbox className="task-checkbox" checked={this.state.isDone} onChange={this.onChange}>
                     {this.state.description}
                 </Checkbox>
                 <TMButton csName="remove-task" onClick={this.removeTask} glyph="remove"/>

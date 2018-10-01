@@ -21,7 +21,7 @@ class AddTask extends Component {
 
     render() {
         return (
-            <div className="add-task-container">
+            <div className="add-task-container center">
                 {
                     this.state.isAddTaskSectionOpen
                         ? <AddTaskSection addTask={this.props.addTask} closeSection={this.closeSection}/>
