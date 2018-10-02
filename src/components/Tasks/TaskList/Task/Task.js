@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {Checkbox} from 'react-bootstrap';
 
 import './Task.css';
-import TasksService from '../../../../services/TasksService';
 import TMButton from '../../../TMButton/TMButton';
+import TasksService from '../../../../services/TasksService';
 
 class Task extends Component {
     constructor(props) {
@@ -25,12 +25,17 @@ class Task extends Component {
 
     render() {
         return (
-            <div className="center">
-                <Checkbox className="task-checkbox" checked={this.state.isDone} onChange={this.onChange}>
-                    {this.state.description}
-                </Checkbox>
-                <TMButton csName="remove-task" onClick={this.removeTask} glyph="remove"/>
-            </div>
+            <tr>
+                <td>
+                    <Checkbox className="center" checked={this.state.isDone} onChange={this.onChange}/>
+                </td>
+                <td className="task-description">
+                    {this.props.task.description}
+                </td>
+                <td className="remove-task">
+                    <TMButton onClick={this.removeTask} glyph="remove"/>
+                </td>
+            </tr>
         );
     }
 }

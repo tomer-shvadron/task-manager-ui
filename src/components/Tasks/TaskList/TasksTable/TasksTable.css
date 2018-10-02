@@ -1,0 +1,7 @@
+.tasks-table {
+    margin-top: 20px;
+}
+
+.tasks-table tbody tr:first-child td {
+    border-top: none;
+}
