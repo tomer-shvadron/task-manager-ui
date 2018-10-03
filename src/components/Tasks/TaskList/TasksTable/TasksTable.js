@@ -11,7 +11,9 @@ class TasksTable extends Component {
                 <Table condensed responsive className="tasks-table">
                     <tbody>
                     {
-                        this.props.tasks.map(task => <Task task={task} key={`task-${task._id.$oid}`}/>)
+                        this.props.tasks.map(task => <Task task={task} key={`task-${task._id.$oid}`}
+                                                           removeTask={this.props.removeTask}
+                                                           updateDescription={this.props.updateDescription}/>)
                     }
                     </tbody>
                 </Table>

@@ -54,7 +54,7 @@ class Tasks extends Component {
                     {
                         this.state.allTasks.length > 0
                             ? <TaskList tasks={this.state.tasks} filterList={this.filterList}
-                                        removeTask={this.removeTask}/>
+                                        removeTask={this.removeTask} updateDescription={this.updateDescription}/>
                             : <NoTasks/>
                     }
                 </div>

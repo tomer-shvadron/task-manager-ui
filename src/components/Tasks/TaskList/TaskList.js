@@ -9,7 +9,8 @@ class TaskList extends Component {
         return (
             <div className="task-list">
                 <SearchField filterList={this.props.filterList}/>
-                <TasksTable tasks={this.props.tasks}/>
+                <TasksTable tasks={this.props.tasks} removeTask={this.props.removeTask}
+                            updateDescription={this.props.updateDescription}/>
             </div>
         );
     }
