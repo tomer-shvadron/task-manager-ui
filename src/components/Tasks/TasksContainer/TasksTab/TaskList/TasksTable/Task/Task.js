@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {Checkbox} from 'react-bootstrap';
 
 import './Task.css';
-import TMButton from '../../../TMButton/TMButton';
-import TasksService from '../../../../services/TasksService';
+import TMButton from '../../../../../../TMButton/TMButton';
+import TasksService from '../../../../../../../services/TasksService';
 import TaskDescription from './TaskDescription/TaskDescription';
 import EditTaskDescription from './EditTaskDescription/EditTaskDescription';
 
@@ -19,7 +19,7 @@ class Task extends Component {
         };
     }
 
-    changeTaskDoneStatus = () => {
+    changeTaskStatus = () => {
         var newDone = !this.state.isDone;
 
         this.setState({isDone: newDone});
@@ -46,7 +46,7 @@ class Task extends Component {
         return (
             <tr>
                 <td>
-                    <Checkbox className="center" checked={this.state.isDone} onChange={this.changeTaskDoneStatus}/>
+                    <Checkbox className="center" checked={this.state.isDone} onChange={this.changeTaskStatus}/>
                 </td>
                 <td className="task-description">
                     {

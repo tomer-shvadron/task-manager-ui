@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Table} from 'react-bootstrap';
 
 import './TasksTable.css';
-import Task from '../Task/Task';
+import Task from './Task/Task';
 
 class TasksTable extends Component {
     render() {
@@ -11,9 +11,10 @@ class TasksTable extends Component {
                 <Table condensed responsive className="tasks-table">
                     <tbody>
                     {
-                        this.props.tasks.map(task => <Task task={task} key={`task-${task._id.$oid}`}
-                                                           removeTask={this.props.removeTask}
-                                                           updateDescription={this.props.updateDescription}/>)
+                        this.props.tasks.map(task => (
+                            <Task task={task} key={`task-${task._id.$oid}`} removeTask={this.props.removeTask}
+                                  updateDescription={this.props.updateDescription}/>
+                        ))
                     }
                     </tbody>
                 </Table>

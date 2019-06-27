@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 
 import './TasksHeader.css';
-import AddTask from '../TaskList/AddTask/AddTask';
+import AddTask from './AddTask/AddTask';
 
 class TasksHeader extends Component {
     render() {
         return (
             <div className="tasks-header">
-                <h1>Tasks</h1>
+                <h1 className="tasks-text">Tasks</h1>
 
                 <AddTask addTask={this.props.addTask}/>
             </div>

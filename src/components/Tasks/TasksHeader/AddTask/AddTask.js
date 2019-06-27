@@ -8,20 +8,20 @@ class AddTask extends Component {
     constructor() {
         super();
 
-        this.state = {isAddTaskSectionOpen: false};
+        this.state = {isAddTaskSectionOpen: false, addedClassName: ''};
     }
 
     openSection = () => {
-        this.setState({isAddTaskSectionOpen: true});
+        this.setState({isAddTaskSectionOpen: true, addedClassName: 'add-task-section-open'});
     };
 
     closeSection = () => {
-        this.setState({isAddTaskSectionOpen: false});
+        this.setState({isAddTaskSectionOpen: false, addedClassName: ''});
     };
 
     render() {
         return (
-            <div className="add-task-container center">
+            <div className={`add-task-container center ${this.state.addedClassName}`}>
                 {
                     this.state.isAddTaskSectionOpen
                         ? <AddTaskSection addTask={this.props.addTask} closeSection={this.closeSection}/>
