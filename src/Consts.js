@@ -1,4 +1,4 @@
-var consts = {
+const consts = {
     "ENDPOINT_URL": 'http://localhost:5000'
 };
 

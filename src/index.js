@@ -6,7 +6,7 @@ import './index.css';
 import TaskManager from './components/TaskManager';
 import registerServiceWorker from './registerServiceWorker';
 
-var taskManagerApp = (
+let taskManagerApp = (
     <BrowserRouter>
         <TaskManager />
     </BrowserRouter>

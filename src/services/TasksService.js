@@ -1,16 +1,12 @@
 import AjaxService from './AjaxService';
 
-var url = 'tasks';
+const url = 'tasks';
 
-var TasksService = {
+const TasksService = {
     getAllTasks: () => AjaxService.get(url),
-
     addTask: task => AjaxService.post(url, task),
-
     updateTask: task => AjaxService.put(url, task),
-
     removeTask: taskId => AjaxService.delete(`${url}/${taskId}`),
-
     createNewTask: description => ({description: description, isDone: false})
 };
 
