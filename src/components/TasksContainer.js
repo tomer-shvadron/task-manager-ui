@@ -17,7 +17,7 @@ class TasksContainer extends Component {
             return;
         }
 
-        var filteredDoneTasks = this.props.doneTasks
+        let filteredDoneTasks = this.props.doneTasks
             .filter(task => task.description.toLowerCase().search(e.target.value.toLowerCase()) !== -1);
 
         this.setState({filteredDoneTasks: filteredDoneTasks});
@@ -29,7 +29,7 @@ class TasksContainer extends Component {
             return;
         }
 
-        var filteredUndoneTasks = this.props.undoneTasks
+        let filteredUndoneTasks = this.props.undoneTasks
             .filter(task => task.description.toLowerCase().search(e.target.value.toLowerCase()) !== -1);
 
         this.setState({filteredUndoneTasks: filteredUndoneTasks});

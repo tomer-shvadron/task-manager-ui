@@ -20,21 +20,21 @@ class Task extends Component {
     }
 
     changeTaskStatus = () => {
-        var newDone = !this.state.isDone;
+        let newDone = !this.state.isDone;
 
         this.setState({isDone: newDone});
         TasksService.updateTask({id: this.state.id, isDone: newDone, description: this.state.description});
     };
 
     updateDescription = e => {
-        var newDescription = e.target.value;
+        let newDescription = e.target.value;
 
         this.setState({description: newDescription});
         TasksService.updateTask({id: this.state.id, isDone: this.state.isDone, description: newDescription});
     };
 
     changeTaskDescriptionEditStatus = () => {
-        var currentEditingStatus = this.state.isEditing;
+        let currentEditingStatus = this.state.isEditing;
         this.setState({isEditing: !currentEditingStatus});
     };
 

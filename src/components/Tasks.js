@@ -3,8 +3,9 @@ import React, {Component} from 'react';
 import './css/Tasks.css'
 import TasksHeader from './TasksHeader';
 import TasksContainer from './TasksContainer';
-import TasksService from '../services/TasksService';
 import LoadingIndication from './LoadingIndication';
+
+import TasksService from '../services/TasksService';
 
 class Tasks extends Component {
     constructor(props) {
@@ -28,8 +29,8 @@ class Tasks extends Component {
     removeTask = id => {
         TasksService.removeTask(id);
 
-        var updatedDoneTasks = this.state.doneTasks.filter(task => task._id.$oid !== id);
-        var updatedUndoneTasks = this.state.undoneTasks.filter(task => task._id.$oid !== id);
+        let updatedDoneTasks = this.state.doneTasks.filter(task => task._id.$oid !== id);
+        let updatedUndoneTasks = this.state.undoneTasks.filter(task => task._id.$oid !== id);
 
         this.setState({doneTasks: updatedDoneTasks, undoneTasks: updatedUndoneTasks});
     };

@@ -4,6 +4,7 @@ import {Tab} from 'react-bootstrap';
 import './css/TasksTab.css'
 import NoTasks from './NoTasks';
 import TaskList from './TaskList';
+import SearchField from './SearchField';
 
 class TasksTab extends Component {
     constructor(props) {
@@ -15,10 +16,10 @@ class TasksTab extends Component {
     render() {
         return (
             <Tab className="tasks-tab" eventKey={this.props.eventKey} title={this.props.title}>
+                <SearchField filterList={this.props.filterList}/>
                 {
                     this.props.tasks.length > 0
-                        ? <TaskList tasks={this.props.tasks} filterList={this.props.filterList}
-                                    removeTask={this.props.removeTask} updateDescription={this.updateDescription}/>
+                        ? <TaskList tasks={this.props.tasks} removeTask={this.props.removeTask}/>
                         : <NoTasks/>
                 }
             </Tab>

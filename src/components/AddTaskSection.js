@@ -24,7 +24,7 @@ class AddTaskSection extends Component {
     };
 
     addTaskAndCloseSection = () => {
-        var task = TasksService.createNewTask(this.state.description);
+        let task = TasksService.createNewTask(this.state.description);
 
         this.props.addTask(task);
         this.props.closeSection();
