@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {ControlLabel, FormControl, FormGroup} from 'react-bootstrap';
 
-import './AddTaskForm.css';
+import './css/AddTaskForm.css';
 
 class AddTaskForm extends Component {
     handleTaskDescriptionChange = e => {

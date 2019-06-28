@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
 
-import './Content.css'
-import Tasks from '../Tasks/Tasks';
+import './css/Content.css'
+import Tasks from './Tasks';
 
 class Content extends Component {
     render() {

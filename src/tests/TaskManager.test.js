@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import TaskManager from './TaskManager';
+import TaskManager from '../components/TaskManager';
 
 it('renders without crashing', () => {
     const div = document.createElement('div');

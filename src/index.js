@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 
 import './index.css';
-import TaskManager from './components/TaskManager/TaskManager';
+import TaskManager from './components/TaskManager';
 import registerServiceWorker from './registerServiceWorker';
 
 var taskManagerApp = (

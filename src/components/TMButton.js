@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Glyphicon} from 'react-bootstrap';
 
-import './TMButton.css';
+import './css/TMButton.css';
 
 class TMButton extends Component {
     render() {

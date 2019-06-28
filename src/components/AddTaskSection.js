@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 
-import './AddTaskSection.css';
-import AddTaskForm from './AddTaskForm/AddTaskForm';
-import TMButton from '../../../../TMButton/TMButton';
-import TasksService from '../../../../../services/TasksService';
+import './css/AddTaskSection.css';
+
+import TMButton from './TMButton';
+import AddTaskForm from './AddTaskForm';
+import TasksService from '../services/TasksService';
 
 class AddTaskSection extends Component {
     constructor(props) {

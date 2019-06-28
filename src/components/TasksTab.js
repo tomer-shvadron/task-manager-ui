@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Tab} from 'react-bootstrap';
 
-import './TasksTab.css'
-import NoTasks from './NoTasks/NoTasks';
-import TaskList from './TaskList/TaskList';
+import './css/TasksTab.css'
+import NoTasks from './NoTasks';
+import TaskList from './TaskList';
 
 class TasksTab extends Component {
     constructor(props) {

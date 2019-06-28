@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
-import './Tasks.css'
-import TasksHeader from './TasksHeader/TasksHeader';
-import TasksContainer from './TasksContainer/TasksContainer';
-import TasksService from '../../services/TasksService';
-import LoadingIndication from '../LoadingIndication/LoadingIndication';
+import './css/Tasks.css'
+import TasksHeader from './TasksHeader';
+import TasksContainer from './TasksContainer';
+import TasksService from '../services/TasksService';
+import LoadingIndication from './LoadingIndication';
 
 class Tasks extends Component {
     constructor(props) {

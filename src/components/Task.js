@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Checkbox} from 'react-bootstrap';
 
-import './Task.css';
-import TMButton from '../../../../../../TMButton/TMButton';
-import TasksService from '../../../../../../../services/TasksService';
-import TaskDescription from './TaskDescription/TaskDescription';
-import EditTaskDescription from './EditTaskDescription/EditTaskDescription';
+import './css/Task.css';
+import TMButton from './TMButton';
+import TaskDescription from './TaskDescription';
+import TasksService from '../services/TasksService';
+import EditTaskDescription from './EditTaskDescription';
 
 class Task extends Component {
     constructor(props) {

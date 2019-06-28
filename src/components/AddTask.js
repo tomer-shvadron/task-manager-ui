@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-import './AddTask.css';
-import TMButton from '../../../TMButton/TMButton';
-import AddTaskSection from './AddTaskSection/AddTaskSection';
+import './css/AddTask.css';
+import TMButton from './TMButton';
+import AddTaskSection from './AddTaskSection';
 
 class AddTask extends Component {
     constructor() {

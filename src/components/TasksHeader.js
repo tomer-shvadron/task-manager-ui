@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-import './TasksHeader.css';
-import AddTask from './AddTask/AddTask';
+import './css/TasksHeader.css';
+import AddTask from './AddTask';
 
 class TasksHeader extends Component {
     render() {

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-import './TaskManager.css';
-import Header from './Header/Header';
-import Content from '../Content/Content';
+import './css/TaskManager.css';
+import Header from './Header';
+import Content from './Content';
 
 class TaskManager extends Component {
     render() {

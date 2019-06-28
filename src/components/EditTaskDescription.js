@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {FormControl, FormGroup} from 'react-bootstrap';
 
-import './EditTaskDescription.css';
+import './css/EditTaskDescription.css';
 
 class EditTaskDescription extends Component {
     render() {

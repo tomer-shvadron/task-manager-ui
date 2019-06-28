@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Table} from 'react-bootstrap';
 
-import './TasksTable.css';
-import Task from './Task/Task';
+import './css/TasksTable.css';
+import Task from './Task';
 
 class TasksTable extends Component {
     render() {

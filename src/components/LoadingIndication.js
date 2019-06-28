@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import './LoadingIndication.css';
+import './css/LoadingIndication.css';
 
 class LoadingIndication extends Component {
     render() {

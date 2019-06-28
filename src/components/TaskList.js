@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-import './TaskList.css';
-import TasksTable from './TasksTable/TasksTable';
-import SearchField from './SearchField/SearchField';
+import './css/TaskList.css';
+import TasksTable from './TasksTable';
+import SearchField from './SearchField';
 
 class TaskList extends Component {
     render() {

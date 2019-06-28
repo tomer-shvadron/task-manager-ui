@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {FormControl, FormGroup} from 'react-bootstrap';
 
-import './SearchField.css';
+import './css/SearchField.css';
 
 class SearchField extends Component {
     render() {
@@ -9,7 +9,7 @@ class SearchField extends Component {
             <div>
                 <form>
                     <FormGroup controlId="search-field" className="search-field">
-                        <FormControl type="text" placeholder="Search" onChange={this.props.filterList}/>
+                        <FormControl type="text" placeholder="Search Tasks" onChange={this.props.filterList}/>
                     </FormGroup>
                 </form>
             </div>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import './TaskDescription.css';
+import './css/TaskDescription.css';
 
 class TaskDescription extends Component {
     render() {

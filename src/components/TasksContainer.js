@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Tabs} from 'react-bootstrap';
 
-import './TasksContainer.css'
-import TasksTab from "./TasksTab/TasksTab";
+import './css/TasksContainer.css'
+import TasksTab from './TasksTab';
 
 class TasksContainer extends Component {
     constructor(props) {
