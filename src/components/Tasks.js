@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 import './css/Tasks.css'
+import * as taskActions from '../actions/taskActions';
 import TasksHeader from './TasksHeader';
 import TasksContainer from './TasksContainer';
 import LoadingIndication from './LoadingIndication';
@@ -8,16 +10,12 @@ import LoadingIndication from './LoadingIndication';
 import TasksService from '../services/TasksService';
 
 class Tasks extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {undoneTasks: [], doneTasks: [], loading: true};
-    }
+    state = {};
 
     componentDidMount() {
-        TasksService.getAllTasks().then(results => {
-            this.setState({undoneTasks: results.data.undone, doneTasks: results.data.done, loading: false});
-        });
+        // TasksService.getAllTasks().then(results => {
+        //     this.setState({undoneTasks: results.data.undone, doneTasks: results.data.done, isLoading: false});
+        // });
     }
 
     addTask = task => {
@@ -29,23 +27,36 @@ class Tasks extends Component {
     removeTask = id => {
         TasksService.removeTask(id);
 
-        let updatedDoneTasks = this.state.doneTasks.filter(task => task._id.$oid !== id);
-        let updatedUndoneTasks = this.state.undoneTasks.filter(task => task._id.$oid !== id);
+        let doneTasks = this.state.doneTasks.filter(task => task._id.$oid !== id);
+        let undoneTasks = this.state.undoneTasks.filter(task => task._id.$oid !== id);
 
-        this.setState({doneTasks: updatedDoneTasks, undoneTasks: updatedUndoneTasks});
+        this.setState({doneTasks, undoneTasks});
     };
 
     render() {
-        return this.state.loading
-            ? <LoadingIndication isLoading={this.state.loading}/>
+        console.log('this.state', this.state);
+        return this.state.isLoading
+            ? <LoadingIndication isLoading={this.state.isLoading}/>
             : (
                 <div className="tasks">
                     <TasksHeader addTask={this.addTask}/>
-                    <TasksContainer undoneTasks={this.state.undoneTasks} doneTasks={this.state.doneTasks}
-                                    removeTask={this.removeTask}/>
+                    {/*<TasksContainer undoneTasks={this.state.undoneTasks} doneTasks={this.state.doneTasks}*/}
+                                    {/*removeTask={this.removeTask}/>*/}
                 </div>
             );
     }
 }
 
-export default Tasks;
+function mapStateToProps(state) {
+    console.log('state', state);
+    return {
+        undoneTasks: state.undoneTasks
+    };
+}
+
+const mapDispatchToProps = {
+    createTask: taskActions.createTask,
+    removeTask: taskActions.removeTask
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tasks);
