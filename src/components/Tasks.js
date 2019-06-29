@@ -1,21 +1,25 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import './css/Tasks.css'
-import * as taskActions from '../actions/taskActions';
 import TasksHeader from './TasksHeader';
 import TasksContainer from './TasksContainer';
-import LoadingIndication from './LoadingIndication';
-
 import TasksService from '../services/TasksService';
+import LoadingIndication from './LoadingIndication';
+import * as taskActions from '../actions/taskActions';
 
 class Tasks extends Component {
-    state = {};
+    constructor(props) {
+        super(props);
+
+        this.state = {undoneTasks: [], doneTasks: [], isLoading: false};
+    }
 
     componentDidMount() {
-        // TasksService.getAllTasks().then(results => {
-        //     this.setState({undoneTasks: results.data.undone, doneTasks: results.data.done, isLoading: false});
-        // });
+        TasksService.getAllTasks().then(results => {
+            this.setState({undoneTasks: results.data.undone, doneTasks: results.data.done, isLoading: false});
+        });
     }
 
     addTask = task => {
@@ -40,12 +44,18 @@ class Tasks extends Component {
             : (
                 <div className="tasks">
                     <TasksHeader addTask={this.addTask}/>
-                    {/*<TasksContainer undoneTasks={this.state.undoneTasks} doneTasks={this.state.doneTasks}*/}
-                                    {/*removeTask={this.removeTask}/>*/}
+                    <TasksContainer undoneTasks={this.state.undoneTasks} doneTasks={this.state.doneTasks}
+                                    removeTask={this.removeTask}/>
                 </div>
             );
     }
 }
+
+Tasks.propTypes = {
+    doneTasks: PropTypes.array.isRequired,
+    undoneTasks: PropTypes.array.isRequired,
+    isLoading: PropTypes.bool.isRequired
+};
 
 function mapStateToProps(state) {
     console.log('state', state);
@@ -59,4 +69,6 @@ const mapDispatchToProps = {
     removeTask: taskActions.removeTask
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Tasks);
+const TasksView = connect(mapStateToProps, mapDispatchToProps)(Tasks);
+
+export default TasksView;
