@@ -12,7 +12,7 @@ class Task extends Component {
         super(props);
 
         this.state = {
-            id: props.task._id.$oid,
+            id: props.task._id,
             description: props.task.description,
             isDone: props.task.isDone,
             isEditing: false

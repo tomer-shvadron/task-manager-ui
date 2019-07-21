@@ -13,12 +13,15 @@ class Tasks extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {undoneTasks: [], doneTasks: [], isLoading: false};
+        this.state = {undoneTasks: [], doneTasks: [], isLoading: true};
     }
 
     componentDidMount() {
         TasksService.getAllTasks().then(results => {
-            this.setState({undoneTasks: results.data.undone, doneTasks: results.data.done, isLoading: false});
+            let undoneTasks = results.data.filter(task => task.isDone === false);
+            let doneTasks = results.data.filter(task => task.isDone === true);
+
+            this.setState({undoneTasks, doneTasks, isLoading: false});
         });
     }
 
@@ -31,14 +34,13 @@ class Tasks extends Component {
     removeTask = id => {
         TasksService.removeTask(id);
 
-        let doneTasks = this.state.doneTasks.filter(task => task._id.$oid !== id);
-        let undoneTasks = this.state.undoneTasks.filter(task => task._id.$oid !== id);
+        let doneTasks = this.state.doneTasks.filter(task => task._id !== id);
+        let undoneTasks = this.state.undoneTasks.filter(task => task._id !== id);
 
         this.setState({doneTasks, undoneTasks});
     };
 
     render() {
-        console.log('this.state', this.state);
         return this.state.isLoading
             ? <LoadingIndication isLoading={this.state.isLoading}/>
             : (

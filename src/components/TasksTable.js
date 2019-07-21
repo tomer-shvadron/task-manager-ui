@@ -12,7 +12,7 @@ class TasksTable extends Component {
                     <tbody>
                     {
                         this.props.tasks.map(task => (
-                            <Task task={task} key={`task-${task._id.$oid}`} removeTask={this.props.removeTask}/>
+                            <Task task={task} key={`task-${task._id}`} removeTask={this.props.removeTask}/>
                         ))
                     }
                     </tbody>
